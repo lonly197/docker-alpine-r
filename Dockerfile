@@ -39,18 +39,16 @@ RUN	set -x \
     && R CMD INSTALL --configure-args="--with-libssl-include=/usr/lib/" git2r \
     ## Install R dev related package
     && R -q -e "install.packages('knitr', repos='https://cloud.r-project.org')" \
-    && R -q -e "install.packages('ggplot2', repos='https://cloud.r-project.org)" \
+    && R -q -e "install.packages('ggplot2', repos='https://cloud.r-project.org')" \
     && R -q -e "install.packages('googleVis', repos='https://cloud.r-project.org')" \
-    && R -q -e "install.packages('data.table', repos='https://cloud.r-project.org)" \
+    && R -q -e "install.packages('data.table', repos='https://cloud.r-project.org')" \
     && R -q -e "install.packages('devtools', repos='https://cloud.r-project.org')" \
     && R -q -e "install.packages('covr', repos='https://cloud.r-project.org')" \
     && R -q -e "install.packages('roxygen2', repos='https://cloud.r-project.org')" \
     && R -q -e "install.packages('testthat', repos='https://cloud.r-project.org')" \
-    && R -q -e "install.packages('Rcpp', repos='https://cloud.r-project.org)" \
+    && R -q -e "install.packages('Rcpp', repos='https://cloud.r-project.org')" \
     && Rscript -e "library('devtools'); library('Rcpp'); install_github('ramnathv/rCharts')" \
     ## Cleanup
-    && rm -rf *.tgz \
-            *.tar \
-            *.zip \
+    && rm -rf *.tgz *.tar *.zip \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/*
